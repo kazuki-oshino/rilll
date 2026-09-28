@@ -1,0 +1,38 @@
+{
+  "name": "rilll",
+  "version": "0.0.86",
+  "description": "A Go workflow orchestrator for AI coding agents",
+  "type": "module",
+  "workspaces": [
+    "bridge/shared"
+  ],
+  "scripts": {
+    "build:shared-protocol": "tsc -p bridge/shared/tsconfig.json",
+    "test:shared-protocol": "npm run build:shared-protocol && node --test bridge/shared/test/telemetry.test.mjs",
+    "build:claude-bridge": "npm run build:shared-protocol && tsc -p bridge/claude-agent-sdk/tsconfig.json",
+    "build:codex-bridge": "npm run build:shared-protocol && tsc -p bridge/codex-sdk/tsconfig.json",
+    "build:cursor-sdk-bridge": "npm run build:shared-protocol && tsc -p bridge/cursor-sdk/tsconfig.json",
+    "build:bridge": "npm run build:shared-protocol && npm run build:claude-bridge && npm run build:codex-bridge && npm run build:cursor-sdk-bridge",
+    "test:claude-bridge": "npm run build:claude-bridge && node --test bridge/claude-agent-sdk/dist/test/protocol.test.js bridge/claude-agent-sdk/dist/test/user-hook.test.js bridge/claude-agent-sdk/dist/test/effort.test.js bridge/claude-agent-sdk/dist/test/additional-directories.test.js bridge/claude-agent-sdk/dist/test/runtime-deps.test.js bridge/claude-agent-sdk/dist/test/structured-error.test.js bridge/claude-agent-sdk/dist/test/permission-mode-and-max-turns.test.js",
+    "test:codex-bridge": "npm run build:codex-bridge && node --test bridge/codex-sdk/dist/test/protocol.test.js bridge/codex-sdk/dist/test/api-key.test.js bridge/codex-sdk/dist/test/context-window.test.js bridge/codex-sdk/dist/test/context-usage.test.js bridge/codex-sdk/dist/test/resume-fallback.test.js bridge/codex-sdk/dist/test/thread-options.test.js bridge/codex-sdk/dist/test/gates.test.js bridge/codex-sdk/dist/test/structured-retry.test.js bridge/codex-sdk/dist/test/tool-status.test.js bridge/codex-sdk/dist/test/reasoning.test.js bridge/codex-sdk/dist/test/skill-prefix.test.js bridge/codex-sdk/dist/test/permission-mode-and-max-turns.test.js",
+    "test:cursor-sdk-bridge": "npm run build:cursor-sdk-bridge && node --test bridge/cursor-sdk/dist/test/protocol.test.js bridge/cursor-sdk/dist/test/akashic.test.js bridge/cursor-sdk/dist/test/model.test.js bridge/cursor-sdk/dist/test/result.test.js bridge/cursor-sdk/dist/test/api-key.test.js bridge/cursor-sdk/dist/test/context-usage.test.js bridge/cursor-sdk/dist/test/resume-fallback.test.js bridge/cursor-sdk/dist/test/effort.test.js bridge/cursor-sdk/dist/test/permission-mode-and-max-turns.test.js",
+    "test:bridge": "npm run test:shared-protocol && npm run test:claude-bridge && npm run test:codex-bridge && npm run test:cursor-sdk-bridge"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.2.137",
+    "@cursor/sdk": "1.0.32",
+    "@openai/codex-sdk": "^0.156.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.2",
+    "typescript": "^6.0.3"
+  },
+  "private": true
+}

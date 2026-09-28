@@ -1,0 +1,44 @@
+{
+  "name": "@rilll/bridge-protocol",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/protocol.js",
+  "types": "./dist/protocol.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/protocol.d.ts",
+      "default": "./dist/protocol.js"
+    },
+    "./akashic": {
+      "types": "./dist/akashic.d.ts",
+      "default": "./dist/akashic.js"
+    },
+    "./telemetry": {
+      "types": "./dist/telemetry.d.ts",
+      "default": "./dist/telemetry.js"
+    },
+    "./deny-patterns": {
+      "types": "./dist/deny-patterns.d.ts",
+      "default": "./dist/deny-patterns.js"
+    },
+    "./additional-directories": {
+      "types": "./dist/additional-directories.d.ts",
+      "default": "./dist/additional-directories.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/core": "2.8.0",
+    "@opentelemetry/exporter-trace-otlp-http": "0.219.0",
+    "@opentelemetry/sdk-trace-base": "2.8.0",
+    "@opentelemetry/sdk-trace-node": "2.8.0",
+    "zod": "^4.3.6"
+  }
+}

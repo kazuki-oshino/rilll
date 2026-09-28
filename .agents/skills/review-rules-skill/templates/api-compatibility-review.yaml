@@ -1,0 +1,8 @@
+# 本テンプレは観点カテゴリの「種 (枠)」であり、`name` / `description` / `provider` / `model` の 4 フィールドのみを保持する。
+# `applies_when` / `prompt` は出荷状態では持たず、Phase 4 で `references/aspects/api-compatibility.md` の合成ガイドに従い、
+# Phase 1 のリポジトリ調査結果を織り込んで合成される (出荷状態の「コピペ即動作」要件は撤回)。
+# provider / model は利用環境に応じて codex / cursor / cursor-sdk に変更可。
+name: api-compatibility-review
+description: API 互換観点 (公開シグネチャ変更 / 応答形式互換 / deprecation 運用 / semver 整合 / wire 互換)
+provider: claude
+model: claude-opus-4-7

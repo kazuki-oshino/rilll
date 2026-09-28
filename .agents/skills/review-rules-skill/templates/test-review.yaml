@@ -1,0 +1,8 @@
+# 本テンプレは観点カテゴリの「種 (枠)」であり、`name` / `description` / `provider` / `model` の 4 フィールドのみを保持する。
+# `applies_when` / `prompt` は出荷状態では持たず、Phase 4 で `references/aspects/test.md` の合成ガイドに従い、
+# Phase 1 のリポジトリ調査結果を織り込んで合成される (出荷状態の「コピペ即動作」要件は撤回)。
+# provider / model は利用環境に応じて codex / cursor / cursor-sdk に変更可。
+name: test-review
+description: テスト観点 (公開関数のテスト追加 / 網羅性 / フレームワーク規約 / unit と統合の分離 / fixture と mock)
+provider: claude
+model: claude-opus-4-7

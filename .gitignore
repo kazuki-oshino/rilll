@@ -1,0 +1,35 @@
+# Dependencies and build output
+node_modules/
+dist/
+/bin/
+*.tsbuildinfo
+coverage/
+
+# Credentials and machine-local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+/.claude/
+/AGENTS.md
+/CLAUDE.md
+/.agents/skills/kiro-*/
+/.kiro/
+/.rilll-config/
+.cursor/
+.codex/
+
+# Agent run data and generated learnings
+.rill/
+.rilll/
+docs_dev/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.log
+*.jsonl
+*.prof
+*.test
